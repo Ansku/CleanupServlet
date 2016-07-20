@@ -10,7 +10,14 @@ Usage:
     public static class Servlet extends CleanupServlet {
         @Override
         protected int getCleanupPollingInterval() {
+            // how long to wait between session timeout checks
             return 3000;
+        }
+        @Override
+        protected boolean alwaysCheckUITimeOuts() {
+            // if you want to ensure UI cleanup on every check
+            // regardless of session timeout, default false
+            return true;
         }
     }
 ```
