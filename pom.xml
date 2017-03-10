@@ -5,7 +5,7 @@
 	<groupId>org.vaadin.anna</groupId>
 	<artifactId>cleanupservlet-root</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>2.0-SNAPSHOT</version>
 	<name>CleanupServlet Add-on Root Project</name>
 
 	<modules>

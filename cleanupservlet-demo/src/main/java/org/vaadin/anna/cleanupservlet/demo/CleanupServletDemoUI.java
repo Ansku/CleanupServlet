@@ -11,7 +11,6 @@ import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -50,7 +49,6 @@ public class CleanupServletDemoUI extends UI {
         addDetachListener(detachListener);
 
         final VerticalLayout layout = new VerticalLayout();
-        layout.setMargin(true);
         setContent(layout);
 
         // if you only want UI cleanup, remove this and closeIdleSessions = true
@@ -58,11 +56,8 @@ public class CleanupServletDemoUI extends UI {
         getSession().getSession().setMaxInactiveInterval(3);
 
         Button button = new Button("Click Me To Delay Cleanup");
-        button.addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
+        button.addClickListener(e -> {
                 layout.addComponent(new Label("Thank you for clicking"));
-            }
         });
         layout.addComponent(new Label("Max inactive interval: 3 seconds."));
         layout.addComponent(button);
