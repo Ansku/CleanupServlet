@@ -22,7 +22,7 @@ import com.vaadin.ui.VerticalLayout;
 public class CleanupServletDemoUI extends UI {
 
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = CleanupServletDemoUI.class, heartbeatInterval = 1)
+    @VaadinServletConfiguration(productionMode = false, ui = CleanupServletDemoUI.class, heartbeatInterval = 1, closeIdleSessions = true)
     public static class Servlet extends CleanupServlet {
         @Override
         protected int getCleanupPollingInterval() {
@@ -53,6 +53,10 @@ public class CleanupServletDemoUI extends UI {
         layout.setMargin(true);
         setContent(layout);
 
+        // if you only want UI cleanup, remove this and closeIdleSessions = true
+        // from Servlet annotations
+        getSession().getSession().setMaxInactiveInterval(3);
+
         Button button = new Button("Click Me To Delay Cleanup");
         button.addClickListener(new Button.ClickListener() {
             @Override
@@ -60,6 +64,7 @@ public class CleanupServletDemoUI extends UI {
                 layout.addComponent(new Label("Thank you for clicking"));
             }
         });
+        layout.addComponent(new Label("Max inactive interval: 3 seconds."));
         layout.addComponent(button);
     }
 
