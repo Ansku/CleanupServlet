@@ -1,3 +1,6 @@
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/cleanupservlet-add-on)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/cleanupservlet-add-on.svg)](https://vaadin.com/directory/component/cleanupservlet-add-on)
+
 # CleanupServlet Add-on for Vaadin 7
 
 CleanupServlet is an add-on for Vaadin 7. It's an extended VaadinServlet that provides a cleanup thread to clear out session when all UIs have been closed, without needing to wait for the session timeout.
